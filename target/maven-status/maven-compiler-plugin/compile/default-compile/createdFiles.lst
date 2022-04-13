@@ -1,0 +1,9 @@
+com\section36\praktikum\model\Post$PostBuilder.class
+com\section36\praktikum\controller\AuthorController.class
+com\section36\praktikum\repository\AuthorRepository.class
+com\section36\praktikum\model\Author.class
+com\section36\praktikum\model\Post.class
+com\section36\praktikum\controller\PostController.class
+com\section36\praktikum\repository\PostRepository.class
+com\section36\praktikum\model\Author$AuthorBuilder.class
+com\section36\praktikum\PraktikumApplication.class

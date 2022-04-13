@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.section36.praktikum.PraktikumApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 300.941 s - in com.section36.praktikum.PraktikumApplicationTests
