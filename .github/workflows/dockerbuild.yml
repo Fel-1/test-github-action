@@ -84,7 +84,7 @@ jobs:
             docker rmi felz28/simplegithubactionci:latest
             docker pull felz28/simplegithubactionci:latest
             docker start postgres
-            docker run -d --rm --name simplegithubactionci -p 80:8080 --env-file=dev.env --network alterra felz28/simplegithubactionci:latest
+            docker run -d --rm --name simplegithubactionci -p 80:8080 --env-file dev.env --network alterra felz28/simplegithubactionci:latest
 
 
       
