@@ -59,6 +59,7 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-18.04
+    needs: build
     steps:
       - uses: actions/checkout@v3
       - name: copy file via ssh key
@@ -68,7 +69,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22
-          source: "dev.env"
+          source: "./dev.env"
           target: "/home/ec2-user"
       - name: Deploy with SSH
         uses: appleboy/ssh-action@master
