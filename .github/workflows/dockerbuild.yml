@@ -61,6 +61,15 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v3
+      - name: copy file via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          source: "dev.env"
+          target: "/home/ec2-user"
       - name: Deploy with SSH
         uses: appleboy/ssh-action@master
         with: 
@@ -70,9 +79,11 @@ jobs:
           port: 22
           script: |
             docker stop simplegithubactionci
+            docker stop postgres
             docker rmi felz28/simplegithubactionci:latest
             docker pull felz28/simplegithubactionci:latest
-            docker run -d --rm --name simplegithubactionci -p 80:8080 --network alterra felz28/simplegithubactionci:latest
+            docker start postgres
+            docker run -d --rm --name simplegithubactionci -p 80:8080 --env-file=dev.env --network alterra felz28/simplegithubactionci:latest
 
 
       
